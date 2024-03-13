@@ -23,9 +23,9 @@
 		border: 2px solid black;
 		background-color: white;
 		text-align: center;
-		bottom: 0;
-		left: 0;
-		right: 0;
+		bottom: 10%;
+		left: 15%;
+		right: 15%;
 		height: 25%;
 	}
 	
@@ -196,6 +196,9 @@
 		<div class = "aqua box hidden" id="c12">
 		<p>close</p>
 		</div>
+		<div class = "south aqua box hidden" id="n12">
+		<p>next</p>
+		</div>
 		
 		<div class = "north aqua box hidden" id="n13">
 		<p>north</p>
@@ -256,6 +259,7 @@ document.getElementById("w13").addEventListener("click", display12);
 
 document.getElementById("t12").addEventListener("click", talk12);
 document.getElementById("c12").addEventListener("click", close12);
+document.getElementById("n12").addEventListener("click", next12);
 
 document.getElementById("e12").addEventListener("click", display13);
 document.getElementById("s10").addEventListener("click", display13);
@@ -263,12 +267,17 @@ document.getElementById("s10").addEventListener("click", display13);
 var i = 0;
 var txt1a = 'Lorem ipsum typing effect!';
 var txt7a = 'According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees dont care what humans think is impossible.'; 
-var txt8a = 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.';
-var txt12a = 'Writings not easy. Thats why Grammarly can help. This sentence is grammatically correct, but its wordy, and hard to read. It undermines the writers message and the word choice is bland. Grammarlys cutting edge technology helps you craft compelling, understandable writing that makes an impact on your reader. Much better. Are you ready to give it a try? Installation is simple and free. Visit Grammarly.com today!';
+var txt8a = 'Oh, hello? I’m sorry I can’t help you with anything now, I’m missing some of my equipment. Come back to me if you see [thing], and maybe I’ll be able to help.';
+var txt12a = 'Buzz off, I’m not selling anything since my awning got stolen. I need it back and I’m not in the mood to sell because of it.';
+var txt12b = 'Although… Alright, if you can find it, even if it’s broken, I’ll sell you what you want. Deal?'
 var speed = 50;
 var pickup4 = false;
 var pickup6 = false;
 var pickup8 = false;
+var speak1 = 0;
+var speak7 = 0;
+var speak8 = 0;
+var speak12 = 0;
 
 
 
@@ -302,8 +311,6 @@ function talk1()
 	typeWriter1a();
 }
 
-
-
 function typeWriter1a() {
 	if (i < txt1a.length) {
 		document.getElementById("typing1").innerHTML += txt1a.charAt(i);
@@ -319,6 +326,7 @@ function close1()
 	display1();
 }
 
+
 function display2()
 {
 	var body = document.getElementsByTagName('body')[0];
@@ -332,6 +340,7 @@ function display2()
 	w2.classList.remove("hidden");
 	e2.classList.remove("hidden");
 }
+
 
 function display3()
 {
@@ -347,6 +356,7 @@ function display3()
 	e3.classList.remove("hidden");
 	s3.classList.remove("hidden");
 }
+
 
 function display4()
 {
@@ -368,6 +378,7 @@ function grab4()
 	pickup4 = true;
 }
 
+
 function display5()
 {
 	var body = document.getElementsByTagName('body')[0];
@@ -381,6 +392,7 @@ function display5()
 	w5.classList.remove("hidden");
 	s5.classList.remove("hidden");
 }
+
 
 function display6()
 {
@@ -401,6 +413,7 @@ function grab6()
 {
 	pickup6 = true;
 }
+
 
 function display7()
 {
@@ -515,6 +528,7 @@ function display9()
 	s9.classList.remove("hidden");
 }
 
+
 function display10()
 {
 	var body = document.getElementsByTagName('body')[0];
@@ -529,6 +543,7 @@ function display10()
 	s10.classList.remove("hidden");
 }
 
+
 function display11()
 {
 	var body = document.getElementsByTagName('body')[0];
@@ -542,6 +557,7 @@ function display11()
 	n11.classList.remove("hidden");
 	e11.classList.remove("hidden");
 }
+
 
 function display12()
 {
@@ -570,7 +586,20 @@ function talk12()
 	}
 	typing12.classList.remove("hidden");
 	c12.classList.remove("hidden");
+	n12.classList.remove("hidden");
 	typeWriter12a();
+}
+
+function next12()
+{
+	document.getElementById("typing12").innerHTML = '';
+	i = 0;
+	speak12++;
+	if(speak12 == 1)
+	{
+		n12.classList.add("hidden");
+		typeWriter12b();
+	}
 }
 
 function typeWriter12a() {
@@ -581,12 +610,22 @@ function typeWriter12a() {
 	}
 }
 
+function typeWriter12b() {
+	if (i < txt12b.length) {
+		document.getElementById("typing12").innerHTML += txt12b.charAt(i);
+		i++;
+		setTimeout(typeWriter12b, speed);
+	}
+}
+
 function close12()
 {
 	document.getElementById("typing12").innerHTML = '';
 	i = 0;
+	speak12 = 0;
 	display12();
 }
+
 
 function display13()
 {
