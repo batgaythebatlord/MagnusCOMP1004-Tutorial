@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>the game :)</title>
+
+	<link rel="stylesheet" href="style.css"/>
+
+<style>
+
+	.hidden
+	{
+		display: none;
+	}
+	
+	.box
+	{
+		position: fixed;
+	}
+	
+	.outline
+	{
+		border: 2px solid black;
+		background-color: white;
+		text-align: center;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 25%;
+	}
+	
+	.aqua
+	{
+		background-color: aqua;
+		width: 100px;
+		height: 100px;
+	}
+	
+	.north
+	{
+		top: 0;
+		left: 45%;
+	}
+	
+	.west
+	{
+		left: 0;
+		top: 45%;
+	}
+	
+	.east
+	{
+		right: 0;
+		top: 45%;
+	}
+	
+	.south
+	{
+		bottom: 0;
+		left: 45%;
+	}
+	
+	body {
+		background-image: url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbj45j.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+</style>
+
+</head>
+
+<body>
+		<div class = "east aqua box" id="e1">
+		<p>east</p>
+		</div>
+		<div class = "aqua box" id="t1">
+		<p>talk</p>
+		</div>
+		<div class = "box outline hidden" id="typing1">
+		<p></p>
+		</div>
+		<div class = "aqua box hidden" id="c1">
+		<p>close</p>
+		</div>
+		
+		<div class = "west aqua box hidden" id="w2">
+		<p>west</p>
+		</div>
+		<div class = "east aqua box hidden" id="e2">
+		<p>east</p>
+		</div>
+		
+		<div class = "west aqua box hidden" id="w3">
+		<p>west</p>
+		</div>
+		<div class = "east aqua box hidden" id="e3">
+		<p>east</p>
+		</div>
+		<div class = "south aqua box hidden" id="s3">
+		<p>south</p>
+		</div>
+		
+		<div class = "west aqua box hidden" id="w4">
+		<p>west</p>
+		</div>
+		<div class = "east aqua box hidden" id="e4">
+		<p>east</p>
+		</div>
+		<div class = "aqua box hidden" id="i4">
+		<p>item</p>
+		</div>
+		
+		<div class = "west aqua box hidden" id="w5">
+		<p>west</p>
+		</div>
+		<div class = "south aqua box hidden" id="s5">
+		<p>south</p>
+		</div>
+		
+		<div class = "north aqua box hidden" id="n6">
+		<p>north</p>
+		</div>
+		<div class = "south aqua box hidden" id="s6">
+		<p>south</p>
+		</div>
+		<div class = "aqua box hidden" id="i6">
+		<p>item</p>
+		</div>
+		
+		<div class = "north aqua box hidden" id="n7">
+		<p>north</p>
+		</div>
+		<div class = "south aqua box hidden" id="s7">
+		<p>south</p>
+		</div>
+		<div class = "aqua box hidden" id="t7">
+		<p>talk</p>
+		</div>
+		<div class = "box outline hidden" id="typing7">
+		<p></p>
+		</div>
+		<div class = "aqua box hidden" id="c7">
+		<p>close</p>
+		</div>
+		
+		<div class = "east aqua box hidden" id="e8">
+		<p>east</p>
+		</div>
+		<div class = "aqua box hidden" id="t8">
+		<p>talk</p>
+		</div>
+		<div class = "box outline hidden" id="typing8">
+		<p></p>
+		</div>
+		<div class = "aqua box hidden" id="c8">
+		<p>close</p>
+		</div>
+		
+		<div class = "north aqua box hidden" id="n9">
+		<p>north</p>
+		</div>
+		<div class = "west aqua box hidden" id="w9">
+		<p>west</p>
+		</div>
+		<div class = "south aqua box hidden" id="s9">
+		<p>south</p>
+		</div>
+		
+		<div class = "north aqua box hidden" id="n10">
+		<p>north</p>
+		</div>
+		<div class = "south aqua box hidden" id="s10">
+		<p>south</p>
+		</div>
+		
+		<div class = "north aqua box hidden" id="n11">
+		<p>north</p>
+		</div>
+		<div class = "east aqua box hidden" id="e11">
+		<p>east</p>
+		</div>
+		
+		<div class = "west aqua box hidden" id="w12">
+		<p>west</p>
+		</div>
+		<div class = "east aqua box hidden" id="e12">
+		<p>east</p>
+		</div>
+		<div class = "aqua box hidden" id="t12">
+		<p>talk</p>
+		</div>
+		<div class = "box outline hidden" id="typing12">
+		<p></p>
+		</div>
+		<div class = "aqua box hidden" id="c12">
+		<p>close</p>
+		</div>
+		
+		<div class = "north aqua box hidden" id="n13">
+		<p>north</p>
+		</div>
+		<div class = "west aqua box hidden" id="w13">
+		<p>west</p>
+		</div>
+	
+</body>
+
+<script>
+document.getElementById("w2").addEventListener("click", display1);
+document.getElementById("c1").addEventListener("click", close1);
+
+document.getElementById("t1").addEventListener("click", talk1);
+
+document.getElementById("e1").addEventListener("click", display2);
+document.getElementById("w3").addEventListener("click", display2);
+
+document.getElementById("n6").addEventListener("click", display3);
+document.getElementById("e2").addEventListener("click", display3);
+document.getElementById("w4").addEventListener("click", display3);
+
+document.getElementById("e3").addEventListener("click", display4);
+document.getElementById("w5").addEventListener("click", display4);
+document.getElementById("i4").addEventListener("click", grab4);
+
+document.getElementById("n7").addEventListener("click", display5);
+document.getElementById("e4").addEventListener("click", display5);
+
+document.getElementById("s3").addEventListener("click", display6);
+document.getElementById("n9").addEventListener("click", display6);
+document.getElementById("i6").addEventListener("click", grab6);
+
+document.getElementById("s5").addEventListener("click", display7);
+document.getElementById("n10").addEventListener("click", display7);
+
+document.getElementById("t7").addEventListener("click", talk7);
+document.getElementById("c7").addEventListener("click", close7);
+
+document.getElementById("w9").addEventListener("click", display8);
+
+document.getElementById("t8").addEventListener("click", talk8);
+document.getElementById("c8").addEventListener("click", close8);
+
+document.getElementById("s6").addEventListener("click", display9);
+document.getElementById("e8").addEventListener("click", display9);
+document.getElementById("n11").addEventListener("click", display9);
+
+document.getElementById("s7").addEventListener("click", display10);
+document.getElementById("n13").addEventListener("click", display10);
+
+document.getElementById("s9").addEventListener("click", display11);
+document.getElementById("w12").addEventListener("click", display11);
+
+document.getElementById("e11").addEventListener("click", display12);
+document.getElementById("w13").addEventListener("click", display12);
+
+document.getElementById("t12").addEventListener("click", talk12);
+document.getElementById("c12").addEventListener("click", close12);
+
+document.getElementById("e12").addEventListener("click", display13);
+document.getElementById("s10").addEventListener("click", display13);
+
+var i = 0;
+var txt1a = 'Lorem ipsum typing effect!';
+var txt7a = 'According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees dont care what humans think is impossible.'; 
+var txt8a = 'The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.';
+var txt12a = 'Writings not easy. Thats why Grammarly can help. This sentence is grammatically correct, but its wordy, and hard to read. It undermines the writers message and the word choice is bland. Grammarlys cutting edge technology helps you craft compelling, understandable writing that makes an impact on your reader. Much better. Are you ready to give it a try? Installation is simple and free. Visit Grammarly.com today!';
+var speed = 50;
+var pickup4 = false;
+var pickup6 = false;
+var pickup8 = false;
+
+
+
+function display1()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbj45j.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	e1.classList.remove("hidden");
+	t1.classList.remove("hidden");
+}
+
+function talk1()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://www.shutterstock.com/shutterstock/photos/1985721371/display_1500/stock-photo-portrait-of-beautiful-smiling-cashier-working-at-a-grocery-store-1985721371.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	c1.classList.remove("hidden");
+	typing1.classList.remove("hidden");
+	
+	typeWriter1a();
+}
+
+
+
+function typeWriter1a() {
+	if (i < txt1a.length) {
+		document.getElementById("typing1").innerHTML += txt1a.charAt(i);
+		i++;
+		setTimeout(typeWriter1a, speed);
+	}
+}
+
+function close1()
+{
+	document.getElementById("typing1").innerHTML = '';
+	i = 0;
+	display1();
+}
+
+function display2()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjbk8.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	w2.classList.remove("hidden");
+	e2.classList.remove("hidden");
+}
+
+function display3()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjbqh.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	w3.classList.remove("hidden");
+	e3.classList.remove("hidden");
+	s3.classList.remove("hidden");
+}
+
+function display4()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjc9r.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	w4.classList.remove("hidden");
+	e4.classList.remove("hidden");
+	i4.classList.remove("hidden");
+}
+
+function grab4()
+{
+	pickup4 = true;
+}
+
+function display5()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://image.spreadshirtmedia.net/image-server/v1/mp/products/T1459A839PA4459PT28D189275222W8333H10000/views/1,width=1200,height=630,appearanceId=839,backgroundColor=F2F2F2/5-number-number-sticker.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	w5.classList.remove("hidden");
+	s5.classList.remove("hidden");
+}
+
+function display6()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjckr.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	n6.classList.remove("hidden");
+	s6.classList.remove("hidden");
+	i6.classList.remove("hidden");
+}
+
+function grab6()
+{
+	pickup6 = true;
+}
+
+function display7()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://www.insoonia.com/wp-content/uploads/2009/08/figura13.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	n7.classList.remove("hidden");
+	s7.classList.remove("hidden");
+	t7.classList.remove("hidden");
+}
+
+function talk7()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://media.gettyimages.com/id/85666418/photo/cashier-tossing-apple.jpg?s=612x612&w=gi&k=20&c=k5NHvjU2ftjqNCTH9YEMGGltdfxFCS5qoyGMvTFuIWE=')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	typing7.classList.remove("hidden");
+	c7.classList.remove("hidden");
+	typeWriter7a();
+}
+
+
+function typeWriter7a() {
+	if (i < txt7a.length) {
+		document.getElementById("typing7").innerHTML += txt7a.charAt(i);
+		i++;
+		setTimeout(typeWriter7a, speed);
+	}
+}
+
+function close7()
+{
+	document.getElementById("typing7").innerHTML = '';
+	i = 0;
+	display7();
+}
+
+
+function display8()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://bengkuluekspress.disway.id/upload/dd2c4477556dbe2a88ea408e2a62d53d.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	e8.classList.remove("hidden");
+	t8.classList.remove("hidden");
+}
+
+function talk8()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://media.istockphoto.com/id/1199289013/photo/young-adult-woman-cashier-on-checkout-in-market.jpg?s=612x612&w=0&k=20&c=Z3rDC1sFIhRpaw4M9qW5iAta5kVYuvi-n_eYRcNIG08=')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	typing8.classList.remove("hidden");
+	c8.classList.remove("hidden");
+	typeWriter8a();
+}
+
+
+function typeWriter8a() {
+	if (i < txt8a.length) {
+		document.getElementById("typing8").innerHTML += txt8a.charAt(i);
+		i++;
+		setTimeout(typeWriter8a, speed);
+	}
+}
+
+function close8()
+{
+	document.getElementById("typing8").innerHTML = '';
+	i = 0;
+	display8();
+}
+
+function grab8()
+{
+	pickup8 = true;
+}
+
+
+function display9()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://www.thefactsite.com/wp-content/uploads/2021/07/number-9-facts.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	n9.classList.remove("hidden");
+	w9.classList.remove("hidden");
+	s9.classList.remove("hidden");
+}
+
+function display10()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6389FP2oLKYN09kMLUKWGsBozykIkJqnlOw&usqp=CAU')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	n10.classList.remove("hidden");
+	s10.classList.remove("hidden");
+}
+
+function display11()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://aster.cloud/wp-content/uploads/2021/10/windows-11.jpeg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	n11.classList.remove("hidden");
+	e11.classList.remove("hidden");
+}
+
+function display12()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://neon4business.com/cdn/shop/products/12_-_Arial_font_warm_white_1024x.png?v=1650404687')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	w12.classList.remove("hidden");
+	e12.classList.remove("hidden");
+	t12.classList.remove("hidden");
+}
+
+function talk12()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://previews.123rf.com/images/stylephotographs/stylephotographs1909/stylephotographs190900523/130131002-smiling-cashier-or-salesman-in-green-apron-at-the-supermarket-cashier.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	typing12.classList.remove("hidden");
+	c12.classList.remove("hidden");
+	typeWriter12a();
+}
+
+function typeWriter12a() {
+	if (i < txt12a.length) {
+		document.getElementById("typing12").innerHTML += txt12a.charAt(i);
+		i++;
+		setTimeout(typeWriter12a, speed);
+	}
+}
+
+function close12()
+{
+	document.getElementById("typing12").innerHTML = '';
+	i = 0;
+	display12();
+}
+
+function display13()
+{
+	var body = document.getElementsByTagName('body')[0];
+	body.style.backgroundImage = "url('https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/istock-139901458-93058577711ec48efa2c8046615f2e97.jpg')";
+	body.style.backgroundSize = 'cover';
+	let elements = document.getElementsByClassName('box');
+	for (let i = 0; i < elements.length; i++)
+	{
+		elements[i].classList.add("hidden");
+	}
+	n13.classList.remove("hidden");
+	w13.classList.remove("hidden");
+}
+</script>
+
+</html>
