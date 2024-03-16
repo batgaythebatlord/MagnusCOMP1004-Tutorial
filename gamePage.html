@@ -265,19 +265,29 @@ document.getElementById("e12").addEventListener("click", display13);
 document.getElementById("s10").addEventListener("click", display13);
 
 var i = 0;
-var txt1a = 'Lorem ipsum typing effect!';
-var txt7a = 'According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees dont care what humans think is impossible.'; 
-var txt8a = 'Oh, hello? I’m sorry I can’t help you with anything now, I’m missing some of my equipment. Come back to me if you see [thing], and maybe I’ll be able to help.';
+var txt1a = 'Hi! What are you here for?';
+var txt1b = 'Ah, a potion of healing? I’m sorry but I’m out of ingredients for that. There\'s 3 sellers in the area that you can buy the ingredients off though. Bring those back and I’ll make you one.';
+var txt1c = 'I’m sorry, I need all 3 to make the potion.';
+var txt1d = '';
+
+var txt7a = 'I need some distilled eather grass to run my equipment, and I think you need some for your potion too. I’ll be able to make what you need if you bring me that.'; 
+var txt7b = 'Thanks, I’ll get you what you need.';
+
+var txt8a = 'Oh, hello? I’m sorry I can’t help you with anything now, I’m missing some of my equipment. Come back to me if you see my distillation machine, and maybe I’ll be able to help.';
+var txt8b = 'Thank you! I’ll make what you need now.';
+
 var txt12a = 'Buzz off, I’m not selling anything since my awning got stolen. I need it back and I’m not in the mood to sell because of it.';
 var txt12b = 'Although… Alright, if you can find it, even if it’s broken, I’ll sell you what you want. Deal?'
+var txtc12 = 'Thanks for finding the awning. Sucks that I still have to fix it though. I’ll get you what you want.';
+
 var speed = 50;
+var start = true;
 var pickup4 = false;
 var pickup6 = false;
 var pickup8 = false;
 var speak1 = 0;
 var speak7 = 0;
 var speak8 = 0;
-var speak12 = 0;
 
 
 
@@ -307,8 +317,10 @@ function talk1()
 	}
 	c1.classList.remove("hidden");
 	typing1.classList.remove("hidden");
-	
-	typeWriter1a();
+	if (start == true)
+	{
+		typeWriter1a();
+	}
 }
 
 function typeWriter1a() {
@@ -586,20 +598,25 @@ function talk12()
 	}
 	typing12.classList.remove("hidden");
 	c12.classList.remove("hidden");
-	n12.classList.remove("hidden");
-	typeWriter12a();
+	
+	
+	if(pickup4 == true)
+	{
+		typeWriter12c();
+	}
+	else
+	{
+		n12.classList.remove("hidden");
+		typeWriter12a();
+	}
 }
 
 function next12()
 {
 	document.getElementById("typing12").innerHTML = '';
 	i = 0;
-	speak12++;
-	if(speak12 == 1)
-	{
-		n12.classList.add("hidden");
-		typeWriter12b();
-	}
+	n12.classList.add("hidden");
+	typeWriter12b();
 }
 
 function typeWriter12a() {
@@ -616,13 +633,21 @@ function typeWriter12b() {
 		i++;
 		setTimeout(typeWriter12b, speed);
 	}
+	speak12 = 0;
+}
+
+function typeWriter12c() {
+	if (i < txt12c.length) {
+		document.getElementById("typing12").innerHTML += txt12c.charAt(i);
+		i++;
+		setTimeout(typeWriter12c, speed);
+	}
 }
 
 function close12()
 {
 	document.getElementById("typing12").innerHTML = '';
 	i = 0;
-	speak12 = 0;
 	display12();
 }
 
