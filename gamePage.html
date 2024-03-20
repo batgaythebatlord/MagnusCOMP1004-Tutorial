@@ -83,6 +83,9 @@
 		<div class = "aqua box hidden" id="c1">
 		<p>close</p>
 		</div>
+		<div class = "south aqua box hidden" id="n1">
+		<p>next</p>
+		</div>
 		
 		<div class = "west aqua box hidden" id="w2">
 		<p>west</p>
@@ -211,9 +214,10 @@
 
 <script>
 document.getElementById("w2").addEventListener("click", display1);
-document.getElementById("c1").addEventListener("click", close1);
 
 document.getElementById("t1").addEventListener("click", talk1);
+document.getElementById("c1").addEventListener("click", close1);
+document.getElementById("n1").addEventListener("click", next1);
 
 document.getElementById("e1").addEventListener("click", display2);
 document.getElementById("w3").addEventListener("click", display2);
@@ -268,7 +272,7 @@ var i = 0;
 var txt1a = 'Hi! What are you here for?';
 var txt1b = 'Ah, a potion of healing? I’m sorry but I’m out of ingredients for that. There\'s 3 sellers in the area that you can buy the ingredients off though. Bring those back and I’ll make you one.';
 var txt1c = 'I’m sorry, I need all 3 to make the potion.';
-var txt1d = '';
+var txt1d = 'Fin \(placeholder\)';
 
 var txt7a = 'I need some distilled eather grass to run my equipment, and I think you need some for your potion too. I’ll be able to make what you need if you bring me that.'; 
 var txt7b = 'Thanks, I’ll get you what you need.';
@@ -277,14 +281,17 @@ var txt8a = 'Oh, hello? I’m sorry I can’t help you with anything now, I’m 
 var txt8b = 'Thank you! I’ll make what you need now.';
 
 var txt12a = 'Buzz off, I’m not selling anything since my awning got stolen. I need it back and I’m not in the mood to sell because of it.';
-var txt12b = 'Although… Alright, if you can find it, even if it’s broken, I’ll sell you what you want. Deal?'
-var txtc12 = 'Thanks for finding the awning. Sucks that I still have to fix it though. I’ll get you what you want.';
+var txt12b = 'Although… Alright, if you can find it, even if it’s broken, I’ll sell you what you want. Deal?';
+var txt12c = 'Thanks for finding the awning. Sucks that I still have to fix it though. I’ll get you what you want.';
 
 var speed = 50;
 var start = true;
 var pickup4 = false;
 var pickup6 = false;
 var pickup8 = false;
+var item7 = false;
+var item8 = false;
+var item12 = false;
 var speak1 = 0;
 var speak7 = 0;
 var speak8 = 0;
@@ -319,7 +326,17 @@ function talk1()
 	typing1.classList.remove("hidden");
 	if (start == true)
 	{
+		n1.classList.remove("hidden");
+		start = false;
 		typeWriter1a();
+	}
+	else if(item7 == true && item8 == true && item12 == true)
+	{
+		typeWriter1d();
+	}
+	else
+	{
+		typeWriter1c();
 	}
 }
 
@@ -329,6 +346,38 @@ function typeWriter1a() {
 		i++;
 		setTimeout(typeWriter1a, speed);
 	}
+}
+
+function typeWriter1b() {
+	if (i < txt1b.length) {
+		document.getElementById("typing1").innerHTML += txt1b.charAt(i);
+		i++;
+		setTimeout(typeWriter1b, speed);
+	}
+}
+
+function typeWriter1c() {
+	if (i < txt1c.length) {
+		document.getElementById("typing1").innerHTML += txt1c.charAt(i);
+		i++;
+		setTimeout(typeWriter1c, speed);
+	}
+}
+
+function typeWriter1d() {
+	if (i < txt1d.length) {
+		document.getElementById("typing1").innerHTML += txt1d.charAt(i);
+		i++;
+		setTimeout(typeWriter1d, speed);
+	}
+}
+
+function next1()
+{
+	document.getElementById("typing1").innerHTML = '';
+	i = 0;
+	n1.classList.add("hidden");
+	typeWriter1b();
 }
 
 function close1()
@@ -454,7 +503,15 @@ function talk7()
 	}
 	typing7.classList.remove("hidden");
 	c7.classList.remove("hidden");
-	typeWriter7a();
+	if(pickup8 == true)
+	{
+		item7 = true;
+		typeWriter7b();
+	}
+	else
+	{
+		typeWriter7a();
+	}
 }
 
 
@@ -463,6 +520,14 @@ function typeWriter7a() {
 		document.getElementById("typing7").innerHTML += txt7a.charAt(i);
 		i++;
 		setTimeout(typeWriter7a, speed);
+	}
+}
+
+function typeWriter7b() {
+	if (i < txt7b.length) {
+		document.getElementById("typing7").innerHTML += txt7b.charAt(i);
+		i++;
+		setTimeout(typeWriter7b, speed);
 	}
 }
 
@@ -500,7 +565,16 @@ function talk8()
 	}
 	typing8.classList.remove("hidden");
 	c8.classList.remove("hidden");
-	typeWriter8a();
+	if(pickup6 == true)
+	{
+		item8 = true;
+		grab8();
+		typeWriter8b();
+	}
+	else
+	{
+		typeWriter8a();
+	}
 }
 
 
@@ -509,6 +583,14 @@ function typeWriter8a() {
 		document.getElementById("typing8").innerHTML += txt8a.charAt(i);
 		i++;
 		setTimeout(typeWriter8a, speed);
+	}
+}
+
+function typeWriter8b() {
+	if (i < txt8b.length) {
+		document.getElementById("typing8").innerHTML += txt8b.charAt(i);
+		i++;
+		setTimeout(typeWriter8b, speed);
 	}
 }
 
@@ -602,6 +684,7 @@ function talk12()
 	
 	if(pickup4 == true)
 	{
+		item12 = true;
 		typeWriter12c();
 	}
 	else
@@ -633,7 +716,6 @@ function typeWriter12b() {
 		i++;
 		setTimeout(typeWriter12b, speed);
 	}
-	speak12 = 0;
 }
 
 function typeWriter12c() {
