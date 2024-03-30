@@ -111,7 +111,7 @@
 		<p>east</p>
 		</div>
 		<div class = "aqua box hidden" id="i4">
-		<p>item</p>
+		<p>awning</p>
 		</div>
 		
 		<div class = "west aqua box hidden" id="w5">
@@ -128,7 +128,7 @@
 		<p>south</p>
 		</div>
 		<div class = "aqua box hidden" id="i6">
-		<p>item</p>
+		<p>machine</p>
 		</div>
 		
 		<div class = "north aqua box hidden" id="n7">
@@ -276,16 +276,23 @@ var txt1d = 'Fin \(placeholder\)';
 
 var txt7a = 'I need some distilled eather grass to run my equipment, and I think you need some for your potion too. I’ll be able to make what you need if you bring me that.'; 
 var txt7b = 'Thanks, I’ll get you what you need.';
+var txt7c = 'placeholder';
 
 var txt8a = 'Oh, hello? I’m sorry I can’t help you with anything now, I’m missing some of my equipment. Come back to me if you see my distillation machine, and maybe I’ll be able to help.';
 var txt8b = 'Thank you! I’ll make what you need now.';
+var txt8c = 'placeholder';
 
 var txt12a = 'Buzz off, I’m not selling anything since my awning got stolen. I need it back and I’m not in the mood to sell because of it.';
 var txt12b = 'Although… Alright, if you can find it, even if it’s broken, I’ll sell you what you want. Deal?';
 var txt12c = 'Thanks for finding the awning. Sucks that I still have to fix it though. I’ll get you what you want.';
+var txt12d = 'placeholder';
 
 var speed = 50;
 var start = true;
+var start7 = true;
+var start8 = true;
+var start12 = true;
+var start12 = true;
 var pickup4 = false;
 var pickup6 = false;
 var pickup8 = false;
@@ -431,12 +438,16 @@ function display4()
 	}
 	w4.classList.remove("hidden");
 	e4.classList.remove("hidden");
-	i4.classList.remove("hidden");
+	if(start12 == false && pickup4 == false)
+	{
+		i4.classList.remove("hidden");
+	}
 }
 
 function grab4()
 {
 	pickup4 = true;
+	i4.classList.add("hidden");
 }
 
 
@@ -467,12 +478,16 @@ function display6()
 	}
 	n6.classList.remove("hidden");
 	s6.classList.remove("hidden");
-	i6.classList.remove("hidden");
+	if(start8 == false && pickup6 == false)
+	{
+		i6.classList.remove("hidden");
+	}
 }
 
 function grab6()
 {
 	pickup6 = true;
+	i6.classList.add("hidden");
 }
 
 
@@ -508,9 +523,14 @@ function talk7()
 		item7 = true;
 		typeWriter7b();
 	}
+	else if(start7 == true)
+	{
+		start7 = false;
+		typeWriter7a();
+	}
 	else
 	{
-		typeWriter7a();
+		typeWriter7c();
 	}
 }
 
@@ -528,6 +548,14 @@ function typeWriter7b() {
 		document.getElementById("typing7").innerHTML += txt7b.charAt(i);
 		i++;
 		setTimeout(typeWriter7b, speed);
+	}
+}
+
+function typeWriter7c() {
+	if (i < txt7c.length) {
+		document.getElementById("typing7").innerHTML += txt7c.charAt(i);
+		i++;
+		setTimeout(typeWriter7c, speed);
 	}
 }
 
@@ -571,9 +599,14 @@ function talk8()
 		grab8();
 		typeWriter8b();
 	}
+	else if(start8 == true)
+	{
+		start8 = false;
+		typeWriter8a();
+	}
 	else
 	{
-		typeWriter8a();
+		typeWriter8c();
 	}
 }
 
@@ -591,6 +624,14 @@ function typeWriter8b() {
 		document.getElementById("typing8").innerHTML += txt8b.charAt(i);
 		i++;
 		setTimeout(typeWriter8b, speed);
+	}
+}
+
+function typeWriter8c() {
+	if (i < txt8c.length) {
+		document.getElementById("typing8").innerHTML += txt8c.charAt(i);
+		i++;
+		setTimeout(typeWriter8c, speed);
 	}
 }
 
@@ -687,10 +728,15 @@ function talk12()
 		item12 = true;
 		typeWriter12c();
 	}
-	else
+	else if(start12 == true)
 	{
+		start12 = false;
 		n12.classList.remove("hidden");
 		typeWriter12a();
+	}
+	else
+	{
+		typeWriter12d();
 	}
 }
 
@@ -723,6 +769,14 @@ function typeWriter12c() {
 		document.getElementById("typing12").innerHTML += txt12c.charAt(i);
 		i++;
 		setTimeout(typeWriter12c, speed);
+	}
+}
+
+function typeWriter12d() {
+	if (i < txt12d.length) {
+		document.getElementById("typing12").innerHTML += txt12d.charAt(i);
+		i++;
+		setTimeout(typeWriter12d, speed);
 	}
 }
 
