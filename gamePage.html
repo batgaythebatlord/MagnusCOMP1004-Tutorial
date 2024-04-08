@@ -22,6 +22,7 @@
 	{
 		border: 2px solid black;
 		background-color: white;
+		font-size: 20px;
 		text-align: center;
 		bottom: 10%;
 		left: 15%;
@@ -34,24 +35,26 @@
 		background-color: aqua;
 		width: 100px;
 		height: 100px;
+		font-size: 20px;
+		text-align: center;
 	}
 	
 	.north
 	{
-		top: 0;
+		top: 50%;
 		left: 45%;
 	}
 	
 	.west
 	{
 		left: 0;
-		top: 45%;
+		top: 70%;
 	}
 	
 	.east
 	{
 		right: 0;
-		top: 45%;
+		top: 70%;
 	}
 	
 	.south
@@ -61,9 +64,9 @@
 	}
 	
 	body {
-		background-image: url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbj45j.jpg');
+		background-image: url('https://imgur.com/beC3DVz.png');
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: 100vw 100vh;
 	}
 
 </style>
@@ -272,20 +275,20 @@ var i = 0;
 var txt1a = 'Hi! What are you here for?';
 var txt1b = 'Ah, a potion of healing? I’m sorry but I’m out of ingredients for that. There\'s 3 sellers in the area that you can buy the ingredients off though. Bring those back and I’ll make you one.';
 var txt1c = 'I’m sorry, I need all 3 to make the potion.';
-var txt1d = 'Fin \(placeholder\)';
+var txt1d = 'Thank you for finding these ingredients for me, I will make you that potion now.';
 
 var txt7a = 'I need some distilled eather grass to run my equipment, and I think you need some for your potion too. I’ll be able to make what you need if you bring me that.'; 
 var txt7b = 'Thanks, I’ll get you what you need.';
-var txt7c = 'placeholder';
+var txt7c = 'One of the other sellers should have the grass. I can\'t help you without it.';
 
 var txt8a = 'Oh, hello? I’m sorry I can’t help you with anything now, I’m missing some of my equipment. Come back to me if you see my distillation machine, and maybe I’ll be able to help.';
 var txt8b = 'Thank you! I’ll make what you need now.';
-var txt8c = 'placeholder';
+var txt8c = 'I\'m sorry, I still need my machine to help you.';
 
 var txt12a = 'Buzz off, I’m not selling anything since my awning got stolen. I need it back and I’m not in the mood to sell because of it.';
 var txt12b = 'Although… Alright, if you can find it, even if it’s broken, I’ll sell you what you want. Deal?';
 var txt12c = 'Thanks for finding the awning. Sucks that I still have to fix it though. I’ll get you what you want.';
-var txt12d = 'placeholder';
+var txt12d = 'I\'m still not selling without that awning.';
 
 var speed = 50;
 var start = true;
@@ -308,8 +311,8 @@ var speak8 = 0;
 function display1()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbj45j.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/beC3DVz.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -322,7 +325,7 @@ function display1()
 function talk1()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://www.shutterstock.com/shutterstock/photos/1985721371/display_1500/stock-photo-portrait-of-beautiful-smiling-cashier-working-at-a-grocery-store-1985721371.jpg')";
+	body.style.backgroundImage = "url('https://imgur.com/NGQrsjb.png')";
 	body.style.backgroundSize = 'cover';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
@@ -398,8 +401,8 @@ function close1()
 function display2()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjbk8.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/vgTUv66.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -413,8 +416,8 @@ function display2()
 function display3()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjbqh.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/zt3MdsF.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -429,8 +432,8 @@ function display3()
 function display4()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjc9r.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/AA3eVNb.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -454,8 +457,8 @@ function grab4()
 function display5()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://image.spreadshirtmedia.net/image-server/v1/mp/products/T1459A839PA4459PT28D189275222W8333H10000/views/1,width=1200,height=630,appearanceId=839,backgroundColor=F2F2F2/5-number-number-sticker.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/Z80e4Pm.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -469,8 +472,8 @@ function display5()
 function display6()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://ichef.bbci.co.uk/images/ic/1920x1080/p0cbjckr.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/X7d2PKh.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -494,8 +497,8 @@ function grab6()
 function display7()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://www.insoonia.com/wp-content/uploads/2009/08/figura13.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/3LJNbqI.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -509,7 +512,7 @@ function display7()
 function talk7()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://media.gettyimages.com/id/85666418/photo/cashier-tossing-apple.jpg?s=612x612&w=gi&k=20&c=k5NHvjU2ftjqNCTH9YEMGGltdfxFCS5qoyGMvTFuIWE=')";
+	body.style.backgroundImage = "url('https://imgur.com/RHAMP6o.png')";
 	body.style.backgroundSize = 'cover';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
@@ -570,8 +573,8 @@ function close7()
 function display8()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://bengkuluekspress.disway.id/upload/dd2c4477556dbe2a88ea408e2a62d53d.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/ZkpZLzP.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -584,7 +587,7 @@ function display8()
 function talk8()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://media.istockphoto.com/id/1199289013/photo/young-adult-woman-cashier-on-checkout-in-market.jpg?s=612x612&w=0&k=20&c=Z3rDC1sFIhRpaw4M9qW5iAta5kVYuvi-n_eYRcNIG08=')";
+	body.style.backgroundImage = "url('https://imgur.com/5pgVtBy.png')";
 	body.style.backgroundSize = 'cover';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
@@ -651,8 +654,8 @@ function grab8()
 function display9()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://www.thefactsite.com/wp-content/uploads/2021/07/number-9-facts.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/sXtbOhI.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -667,8 +670,8 @@ function display9()
 function display10()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6389FP2oLKYN09kMLUKWGsBozykIkJqnlOw&usqp=CAU')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/Ey6wIFA.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -682,8 +685,8 @@ function display10()
 function display11()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://aster.cloud/wp-content/uploads/2021/10/windows-11.jpeg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/UNGzD7g.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -697,8 +700,8 @@ function display11()
 function display12()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://neon4business.com/cdn/shop/products/12_-_Arial_font_warm_white_1024x.png?v=1650404687')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/wqrjVdt.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
@@ -712,7 +715,7 @@ function display12()
 function talk12()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://previews.123rf.com/images/stylephotographs/stylephotographs1909/stylephotographs190900523/130131002-smiling-cashier-or-salesman-in-green-apron-at-the-supermarket-cashier.jpg')";
+	body.style.backgroundImage = "url('https://imgur.com/Jg7rKwe.png')";
 	body.style.backgroundSize = 'cover';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
@@ -791,8 +794,8 @@ function close12()
 function display13()
 {
 	var body = document.getElementsByTagName('body')[0];
-	body.style.backgroundImage = "url('https://images2.minutemediacdn.com/image/upload/c_fill,w_1440,ar_16:9,f_auto,q_auto,g_auto/shape/cover/sport/istock-139901458-93058577711ec48efa2c8046615f2e97.jpg')";
-	body.style.backgroundSize = 'cover';
+	body.style.backgroundImage = "url('https://imgur.com/gIHQq1d.png')";
+	body.style.backgroundSize = '100vw 100vh';
 	let elements = document.getElementsByClassName('box');
 	for (let i = 0; i < elements.length; i++)
 	{
